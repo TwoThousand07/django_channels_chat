@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'accounts',
     'chat',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
