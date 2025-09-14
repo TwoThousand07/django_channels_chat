@@ -1,0 +1,25 @@
+{% extends 'chat/base.html' %}
+{% block title %}
+  Chat Room
+{% endblock title %}    
+{% block content %}
+  <textarea name="" id="chat-log" cols="100" rows="20"></textarea><br>
+  <input type="text" name="" id="chat-message-input"><br>
+  <input type="button" name="" id="chat-message-submit" value="Send"><br>
+  
+  <script>
+    document.querySelector('#chat-log').value = ""
+    {% for message_event in message_and_event_list %}
+        document.querySelector('#chat-log').value += ({{ message_event }} + '\n');
+    {% endfor %}
+  </script>
+
+  <h3>Group members</h3>
+  <ul id="members">
+    
+    {% for member in group_members %}
+        <li id="members-{{ members.username }}">{{ member }}</li>
+    {% endfor %}
+  </ul>
+
+{% endblock content %}
